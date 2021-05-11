@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BirthdayCard</string>
+    <string name="happy_birthday_text">La mulți ani</string>
+    <string name="instructions">Scrie-ți numele și apasă pe tort</string>
+    <string name="wishes">Să ți se îndeplinească toate dorințele!</string>
+</resources>

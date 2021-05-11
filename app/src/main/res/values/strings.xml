@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BirthdayCard</string>
+    <string name="happy_birthday_text">Happy birthday</string>
+    <string name="instructions">Write your name and press on cake</string>
+    <string name="wishes">May all your wishes come true!</string>
+</resources>
