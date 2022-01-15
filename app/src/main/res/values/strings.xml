@@ -4,4 +4,7 @@
     <string name="instructions">Title: ex. Happy Birthday, David!</string>
     <string name="wishes">May all your wishes come true!</string>
     <string name="message">Message: ex. May all your wishes come true!</string>
+    <string name="permission_required">Write access is required to save the card image on your phone.</string>
+    <string name="ok">OK</string>
+    <string name="permission_granted">Permission is granted. You can save your card images now.</string>
 </resources>

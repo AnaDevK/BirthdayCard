@@ -5,4 +5,7 @@
     <string name="instructions">Titlu: ex. Happy Birthday, David!</string>
     <string name="wishes">Să ți se îndeplinească toate dorințele!</string>
     <string name="message">Scrie un mesaj ex: Să ți se îndeplinească toate dorințele!</string>
+    <string name="permission_required">Write access is required to save the card image on your phone.</string>
+    <string name="ok">OK</string>
+    <string name="permission_granted">Permission is granted. You can save your card images now.</string>
 </resources>
