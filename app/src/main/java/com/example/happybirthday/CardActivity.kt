@@ -41,10 +41,12 @@ class CardActivity : AppCompatActivity() {
     var title = ""
     var message = ""
     var imageUri: Uri? = null
+    var bdCard: Uri? = null
     var isOn = false
     var textColor = 0
     var bgColor = 0
     var saved = false
+    var share = false
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -53,13 +55,12 @@ class CardActivity : AppCompatActivity() {
             if (isGranted) {
                 val card = findViewById<CardView>(R.id.cardView)
                 if (!saved) {
-                    imageUri = saveImage(card, this)
+                    bdCard = saveImage(card, this)
+                }
+                if (share && (bdCard != null)) {
+                    shareImage(bdCard)
                 } else {
-                    Toast.makeText(
-                        this,
-                        "Already saved on BirthdayCards folder.",
-                        Toast.LENGTH_SHORT
-                    )
+                    Toast.makeText(this, "Error, image cannot be shared.", Toast.LENGTH_SHORT)
                         .show()
                 }
                 Log.i("Permission: ", "Granted")
@@ -157,16 +158,23 @@ class CardActivity : AppCompatActivity() {
             return true
         }
         if (id == R.id.action_share) {
+            share = true
             //Save image to be able to share it
             checkPermissionsAndSave()
-            val intent = Intent(Intent.ACTION_SEND)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            intent.putExtra(Intent.EXTRA_STREAM, imageUri)
-            intent.type = "image/*"
-            startActivity(Intent.createChooser(intent, "Share image via"))
+            if (bdCard != null) {
+                shareImage(bdCard)
+            }
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun shareImage(bdCard: Uri?) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.putExtra(Intent.EXTRA_STREAM, bdCard)
+        intent.type = "image/*"
+        startActivity(Intent.createChooser(intent, "Share image via"))
     }
 
     private fun getScreenShotFromView(v: View): Bitmap? {
@@ -191,7 +199,10 @@ class CardActivity : AppCompatActivity() {
 
         //Create a folder to save birthdays cards
         val directory =
-            File("${getExternalFilesDir(Environment.DIRECTORY_PICTURES)}/BirthdayCards/").apply {
+            File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+                    .toString() + "/BirthdayCards/"
+            ).apply {
                 if (!exists())
                     mkdirs()
             }
@@ -218,7 +229,7 @@ class CardActivity : AppCompatActivity() {
             put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
             put(MediaStore.Images.Media.WIDTH, bmp.width)
             put(MediaStore.Images.Media.HEIGHT, bmp.height)
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 put(
                     MediaStore.Images.Media.RELATIVE_PATH,
                     Environment.DIRECTORY_PICTURES + "/BirthdayCards/"
@@ -258,14 +269,7 @@ class CardActivity : AppCompatActivity() {
             ) == PackageManager.PERMISSION_GRANTED -> {
                 val card = findViewById<CardView>(R.id.cardView)
                 if (!saved) {
-                    imageUri = saveImage(card, this)
-                } else {
-                    Toast.makeText(
-                        this,
-                        "Already saved on BirthdayCards folder.",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    bdCard = saveImage(card, this)
                 }
             }
 
