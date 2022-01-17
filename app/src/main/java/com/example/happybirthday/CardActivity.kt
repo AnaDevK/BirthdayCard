@@ -59,9 +59,6 @@ class CardActivity : AppCompatActivity() {
                 }
                 if (share && (bdCard != null)) {
                     shareImage(bdCard)
-                } else {
-                    Toast.makeText(this, "Error, image cannot be shared.", Toast.LENGTH_SHORT)
-                        .show()
                 }
                 Log.i("Permission: ", "Granted")
             } else {
