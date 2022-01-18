@@ -6,4 +6,7 @@
     <string name="message">Message: ex. May all your wishes come true!</string>
     <string name="permission_required">Write access is required to save the card image on your phone.</string>
     <string name="ok">OK</string>
+    <string name="save">Saved on BirthdayCards folder.</string>
+    <string name="error">Error saving the image.</string>
+    <string name="share">Share image via</string>
 </resources>

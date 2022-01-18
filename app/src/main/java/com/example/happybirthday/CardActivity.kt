@@ -107,7 +107,6 @@ class CardActivity : AppCompatActivity() {
                 .build()
         }
         Picasso.get().load(imageUri).into(imageView)
-        //if(imageUri != null) imageView.setImageURI()
     }
 
     fun playSound() {
@@ -171,7 +170,7 @@ class CardActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         intent.putExtra(Intent.EXTRA_STREAM, bdCard)
         intent.type = "image/*"
-        startActivity(Intent.createChooser(intent, "Share image via"))
+        startActivity(Intent.createChooser(intent, getString(R.string.share)))
     }
 
     private fun getScreenShotFromView(v: View): Bitmap? {
@@ -205,11 +204,11 @@ class CardActivity : AppCompatActivity() {
             }
 
         if (savePhotoToExternalStorage(fileName, bitmap!!, directory)) {
-            Toast.makeText(activity, "Saved on BirthdayCards folder.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.save), Toast.LENGTH_SHORT).show()
             saved = true
             return Uri.parse(directory.absolutePath + "/$fileName.jpg")
         } else {
-            Toast.makeText(activity, "Error saving the image.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, getString(R.string.error), Toast.LENGTH_SHORT).show()
             return null
         }
     }

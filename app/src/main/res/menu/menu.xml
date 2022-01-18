@@ -15,4 +15,14 @@
         android:icon="@drawable/ic_share"
         android:title="Share"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_ok"
+        android:title="OK"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
+    <item
+        android:id="@+id/action_cancel"
+        android:title="Cancel"
+        app:showAsAction="ifRoom"
+        android:visible="false"/>
 </menu>

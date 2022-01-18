@@ -7,4 +7,7 @@
     <string name="message">Scrie un mesaj ex: Să ți se îndeplinească toate dorințele!</string>
     <string name="permission_required">Pentru a salva imaginea este necesara permisiunea de scriere.</string>
     <string name="ok">OK</string>
+    <string name="save">Salvat in dosarul BirthdayCards.</string>
+    <string name="error">Eroare la salvarea imaginii.</string>
+    <string name="share">Partajare imagine</string>
 </resources>
