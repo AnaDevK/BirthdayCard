@@ -68,10 +68,7 @@ class MainActivity : AppCompatActivity() {
         val bundle = intent.extras
         if (bundle != null) {
             txtTitle.setText(bundle.get(constants.title) as String)
-            val msg = bundle.get(constants.message) as String
-            if(getString(R.string.wishes) != msg) {
-                txtMessage.setText(msg)
-            }
+            txtMessage.setText(bundle.get(constants.message) as String)
             textColor = bundle.get(constants.textColor) as Int
             bgColor = bundle.get(constants.bgColor) as Int
             imageUri = bundle.get(constants.image) as Uri?

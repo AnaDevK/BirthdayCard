@@ -2,10 +2,10 @@
 <resources>
     <string name="app_name">BirthdayCards</string>
     <string name="happy_birthday_text">La mulți ani</string>
-    <string name="instructions">Titlu: ex. Happy Birthday, David!</string>
+    <string name="instructions">Titlu: ex. La mulți ani, David!</string>
     <string name="wishes">Să ți se îndeplinească toate dorințele!</string>
     <string name="message">Scrie un mesaj ex: Să ți se îndeplinească toate dorințele!</string>
-    <string name="permission_required">Pentru a salva imaginea este necesara permisiunea de scriere.</string>
+    <string name="permission_required">Pentru a salva imaginea este necesară permisiunea de scriere.</string>
     <string name="ok">OK</string>
     <string name="save">Salvat in dosarul BirthdayCards.</string>
     <string name="error">Eroare la salvarea imaginii.</string>
